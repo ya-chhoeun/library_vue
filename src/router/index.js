@@ -1,6 +1,8 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
+import UserList from '@/views/users/UserList.vue';
+import UserForm from '@/components/users/UserForm.vue'
 
 const routes = [
   {
@@ -59,7 +61,26 @@ const routes = [
   name: 'users',
   component: () => import('@/views/Users/UserList.vue'),
   meta: { title: 'User Management' }
-}
+},
+{
+    path: '/users',
+    name: 'users',
+    component: UserList
+  },
+  {
+    path: '/users/add',
+    name: 'add-user',
+    component: UserForm
+  },
+  {
+    path: '/users/edit/:id',
+    name: 'edit-user',
+    component: UserForm,
+    props: true
+  }
+
+
+
   // {
   //   path: '/:pathMatch(.*)*',
   //   name: 'not-found',
